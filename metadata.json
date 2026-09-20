@@ -1,0 +1,6 @@
+{
+  "name": "Copias Bella Vista",
+  "description": "Catálogo digital y consulta de precios de artículos escolares, de oficina y copiado en Venezuela (USD)",
+  "requestFramePermissions": ["geolocation", "camera"],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
