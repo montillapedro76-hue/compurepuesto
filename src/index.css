@@ -1,0 +1,752 @@
+@import "tailwindcss";
+
+/* ==========================================================================
+   🎨 KIT DE MARCA OFICIAL & SISTEMA DE DISEÑO ADMIN (/ui-ux-pro-max)
+   ========================================================================== */
+:root {
+  /* Paleta de Colores de Marca */
+  --brand-primary: #293896;            /* Índigo / Azul Cobalto - Acciones principales y badges */
+  --brand-primary-hover: #1f2b7b;      /* Hover Índigo */
+  --brand-secondary: #0D9488;          /* Cyan Teal / Azul Verdoso - Jerarquías secundarias */
+  --brand-secondary-light: #F0FDF4;    /* Fondo claro verde/teal */
+  --brand-accent: #E11D48;             /* Soft Red / Coral - Alertas o llamadas de atención */
+  --brand-accent-hover: #BE123C;       /* Hover Coral Destructivo */
+  --brand-text-main: #1E293B;          /* Deep Gray / Gris Oscuro - Alto contraste y legibilidad */
+  --brand-text-muted: #64748B;         /* Gris Medio secundario */
+  --brand-bg-warm: #F8FAFC;            /* Warm White / Gris Claro - Fondo neutro */
+  --brand-surface-card: #FFFFFF;       /* Blanco puro para tarjetas */
+  --brand-border-subtle: #E2E8F0;      /* Borde sutil */
+
+  /* Tipografías */
+  --font-open-sans: 'Open Sans', system-ui, -apple-system, sans-serif;
+  --font-display: 'Open Sans', system-ui, -apple-system, sans-serif;
+  --font-body: 'Open Sans', system-ui, -apple-system, sans-serif;
+  
+  --ink-950: #0F1722;
+  --ink-900: #16202E;
+  --ink-800: #1D2A3D;
+  --canvas-warm: #F8FAFC;
+  --surface-card: #FFFFFF;
+  --border-subtle: #E2E8F0;
+  --border-refined: #CBD5E1;
+  --amber-accent: #293896;
+  --amber-accent-hover: #1f2b7b;
+  --amber-light: #EEF2FF;
+}
+
+body {
+  font-family: var(--font-open-sans);
+  background-color: var(--brand-bg-warm);
+  color: var(--brand-text-main);
+  -webkit-font-smoothing: antialiased;
+}
+
+h1, h2, h3, h4, h5, h6, .font-display, .font-heading {
+  font-family: var(--font-open-sans);
+  font-weight: 700;
+  letter-spacing: -0.01em;
+}
+
+/* ==========================================================================
+   🛠️ COMPONENTES REUTABLES DEL KIT DE MARCA
+   ========================================================================== */
+
+/* 1. Botón Principal: Forma completamente ovalada (Pill Button), primario (#293896), mayúsculas e icono */
+.btn-primary-pill,
+.btn-brand-primary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  background-color: var(--brand-primary);
+  color: #FFFFFF;
+  font-family: var(--font-open-sans);
+  font-weight: 700;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  padding: 0.625rem 1.375rem;
+  border-radius: 9999px; /* Pill shape */
+  border: none;
+  box-shadow: 0 1px 3px rgba(41, 56, 150, 0.2);
+  transition: all 0.2s ease-in-out;
+  cursor: pointer;
+}
+
+.btn-primary-pill:hover,
+.btn-brand-primary:hover {
+  background-color: var(--brand-primary-hover);
+  box-shadow: 0 4px 12px rgba(41, 56, 150, 0.3);
+  transform: translateY(-1px);
+}
+
+.btn-primary-pill:active,
+.btn-brand-primary:active {
+  transform: translateY(0);
+}
+
+/* 2. Botón Secundario: Fondo claro con borde sutil redondeado y texto/icono en tono verde/teal o neutro */
+.btn-secondary-brand,
+.btn-brand-secondary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  background-color: #F1F5F9;
+  color: #334155;
+  font-family: var(--font-open-sans);
+  font-weight: 600;
+  font-size: 0.8125rem;
+  padding: 0.5rem 1rem;
+  border-radius: 0.75rem; /* rounded-xl */
+  border: 1px solid var(--brand-border-subtle);
+  transition: all 0.2s ease-in-out;
+  cursor: pointer;
+}
+
+.btn-secondary-brand:hover,
+.btn-brand-secondary:hover {
+  background-color: #E2E8F0;
+  color: var(--brand-primary);
+  border-color: #CBD5E1;
+}
+
+.btn-secondary-teal {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  background-color: #F0FDF4;
+  color: #0D9488;
+  font-family: var(--font-open-sans);
+  font-weight: 600;
+  font-size: 0.8125rem;
+  padding: 0.5rem 1rem;
+  border-radius: 0.75rem;
+  border: 1px solid #CCFBF1;
+  transition: all 0.2s ease-in-out;
+  cursor: pointer;
+}
+
+.btn-secondary-teal:hover {
+  background-color: #CCFBF1;
+  color: #0F766E;
+}
+
+/* 3. Acciones de Tabla / Fila: Iconos lineales limpios con hover o enfatizados en Coral/Rojo */
+.btn-action-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.4rem;
+  border-radius: 0.5rem;
+  color: #64748B;
+  transition: all 0.15s ease-in-out;
+}
+
+.btn-action-icon:hover {
+  background-color: #F1F5F9;
+  color: var(--brand-primary);
+}
+
+.btn-action-destructive {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.4rem;
+  border-radius: 0.5rem;
+  color: var(--brand-accent);
+  transition: all 0.15s ease-in-out;
+}
+
+.btn-action-destructive:hover {
+  background-color: #FFE4E6;
+  color: var(--brand-accent-hover);
+}
+
+/* 4. Contenedores & Tarjetas (Cards Admin): Bordes sutiles y esquinas ampliamente redondeadas (rounded-2xl) */
+.card-admin,
+.craft-card {
+  background-color: var(--brand-surface-card);
+  border: 1px solid var(--brand-border-subtle);
+  border-radius: 1rem; /* rounded-2xl */
+  box-shadow: 0 1px 3px rgba(15, 23, 42, 0.04), 0 4px 12px -2px rgba(15, 23, 42, 0.02);
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.card-admin:hover,
+.craft-card:hover {
+  border-color: #CBD5E1;
+  box-shadow: 0 6px 20px -4px rgba(15, 23, 42, 0.06), 0 2px 6px -1px rgba(15, 23, 42, 0.03);
+}
+
+/* 5. Feedback Visual: Badges de Estado */
+.badge-status-primary {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.2rem 0.65rem;
+  border-radius: 9999px;
+  font-size: 0.75rem;
+  font-weight: 700;
+  background-color: #EEF2FF;
+  color: var(--brand-primary);
+  border: 1px solid #C7D2FE;
+}
+
+.badge-status-secondary {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.2rem 0.65rem;
+  border-radius: 9999px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  background-color: #F0FDF4;
+  color: #0D9488;
+  border: 1px solid #CCFBF1;
+}
+
+.badge-status-accent {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.2rem 0.65rem;
+  border-radius: 9999px;
+  font-size: 0.75rem;
+  font-weight: 700;
+  background-color: #FFE4E6;
+  color: var(--brand-accent);
+  border: 1px solid #FECDD3;
+}
+
+.craft-card:hover {
+  border-color: var(--border-refined);
+  box-shadow: 0 6px 20px -4px rgba(22, 32, 46, 0.08), 0 2px 6px -1px rgba(22, 32, 46, 0.04);
+}
+
+/* Hide scrollbar for Chrome, Safari and Opera */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+/* Hide scrollbar for IE, Edge and Firefox */
+.no-scrollbar {
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
+}
+
+/* Media query para dispositivos móviles */
+@media (max-width: 768px) {
+  /* Layout principal en 1 sola columna vertical */
+  .admin-container {
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+    padding-bottom: 80px; /* Spacing for bottom nav bar */
+  }
+
+  /* Transformar las 3 columnas de métodos de pago/entrega en 1 columna */
+  .settings-grid-3-cols {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  /* Tarjetas de switches táctiles */
+  .toggle-card {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 14px;
+    background: #ffffff;
+    border-radius: 12px;
+    border: 1px solid #f3f4f6;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+    min-height: 48px;
+  }
+
+  /* Contenedores de pestañas con scroll horizontal */
+  .tabs-header {
+    display: flex;
+    overflow-x: auto;
+    white-space: nowrap;
+    -webkit-overflow-scrolling: touch;
+    padding-bottom: 6px;
+    scrollbar-width: none;
+  }
+  .tabs-header::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+/* ==========================================================================
+   🌙 TEMA OSCURO (DARK MODE ENGINE)
+   ========================================================================== */
+html.dark,
+body.dark {
+  background-color: #0b0f19 !important;
+  color: #f1f5f9 !important;
+  color-scheme: dark;
+}
+
+html.dark body {
+  background-color: #0b0f19 !important;
+  color: #f1f5f9 !important;
+}
+
+/* Main background containers */
+html.dark .bg-gray-50,
+html.dark .bg-gray-100,
+html.dark .bg-slate-50,
+html.dark .bg-slate-100,
+html.dark [class*="bg-[#F3F4F6]"],
+html.dark [class*="bg-[#EAEDED]"] {
+  background-color: #0f172a !important;
+}
+
+/* Cards & Modals */
+html.dark .bg-white {
+  background-color: #1e293b !important;
+  color: #f8fafc !important;
+}
+
+/* Borders */
+html.dark .border-gray-100,
+html.dark .border-gray-150,
+html.dark .border-gray-200,
+html.dark .border-gray-300,
+html.dark .border-slate-100,
+html.dark .border-slate-200,
+html.dark .border-slate-300 {
+  border-color: #334155 !important;
+}
+
+/* Headings & Text */
+html.dark .text-gray-900,
+html.dark .text-gray-800,
+html.dark .text-slate-900,
+html.dark .text-slate-800,
+html.dark [class*="text-[#131921]"],
+html.dark [class*="text-[#0F1111]"] {
+  color: #f8fafc !important;
+}
+
+html.dark .text-gray-700,
+html.dark .text-gray-600,
+html.dark .text-slate-700,
+html.dark .text-slate-600 {
+  color: #cbd5e1 !important;
+}
+
+html.dark .text-gray-500,
+html.dark .text-gray-400,
+html.dark .text-slate-500,
+html.dark .text-slate-400 {
+  color: #94a3b8 !important;
+}
+
+/* Inputs, Selects & Textareas */
+html.dark input:not([type="checkbox"]):not([type="radio"]):not([type="submit"]):not([type="button"]),
+html.dark select,
+html.dark textarea {
+  background-color: #0f172a !important;
+  color: #f8fafc !important;
+  border-color: #334155 !important;
+}
+
+html.dark input::placeholder,
+html.dark textarea::placeholder {
+  color: #64748b !important;
+}
+
+/* Secondary Buttons & Pills */
+html.dark .bg-gray-150,
+html.dark .bg-gray-200,
+html.dark .bg-slate-200 {
+  background-color: #334155 !important;
+  color: #f1f5f9 !important;
+}
+
+/* Tables */
+html.dark table thead tr {
+  background-color: #0f172a !important;
+  border-color: #334155 !important;
+}
+
+html.dark table tbody tr:hover {
+  background-color: #1e293b !important;
+}
+
+/* Modals & Drawers backdrop & overlay */
+html.dark .shadow-sm,
+html.dark .shadow-md,
+html.dark .shadow-lg,
+html.dark .shadow-xl,
+html.dark .shadow-2xl {
+  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.5), 0 8px 10px -6px rgba(0, 0, 0, 0.5) !important;
+}
+
+/* ==========================================================================
+    TEMA MINIMALISTA PREMIUM (APPLE STYLE / SECTIONAL ELEGANCE)
+   ========================================================================== */
+html.theme-minimalista-premium,
+body.theme-minimalista-premium {
+  background-color: #F5F5F7 !important;
+  color: #1D1D1F !important;
+  font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "SF Pro Display", "SF Pro", "Helvetica Neue", Helvetica, Arial, sans-serif !important;
+  letter-spacing: -0.011em !important;
+}
+
+html.theme-minimalista-premium body {
+  background-color: #F5F5F7 !important;
+  color: #1D1D1F !important;
+}
+
+/* Navbars, Header, Top Bars, Footers & Hero Sections (Sectional Dark Elements) */
+html.theme-minimalista-premium #main-navbar,
+html.theme-minimalista-premium header,
+html.theme-minimalista-premium footer,
+html.theme-minimalista-premium [class*="bg-[#131921]"],
+html.theme-minimalista-premium [class*="bg-[#232f3e]"],
+html.theme-minimalista-premium .bg-gray-900,
+html.theme-minimalista-premium .bg-slate-900 {
+  background-color: #161617 !important;
+  color: #FFFFFF !important;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1) !important;
+}
+
+/* Primary Action Buttons & Links (Apple Link Blue #0066CC / #2997FF) */
+html.theme-minimalista-premium [class*="bg-[#005da9]"],
+html.theme-minimalista-premium [class*="bg-[#febd69]"],
+html.theme-minimalista-premium .bg-blue-600,
+html.theme-minimalista-premium .bg-sky-600 {
+  background-color: #0066CC !important;
+  color: #FFFFFF !important;
+  border-radius: 9999px !important; /* Apple pill style buttons */
+}
+
+html.theme-minimalista-premium button:hover[class*="bg-[#005da9]"],
+html.theme-minimalista-premium [class*="hover:bg-[#004a87]"]:hover {
+  background-color: #0051A3 !important;
+}
+
+html.theme-minimalista-premium [class*="text-[#005da9]"],
+html.theme-minimalista-premium .text-blue-600,
+html.theme-minimalista-premium .text-sky-600 {
+  color: #0066CC !important;
+}
+
+/* Off-White Section Cards & Panels */
+html.theme-minimalista-premium .bg-white {
+  background-color: #FFFFFF !important;
+  color: #1D1D1F !important;
+  border-radius: 18px !important;
+  border: 1px solid #E5E5E7 !important;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03) !important;
+}
+
+html.theme-minimalista-premium .bg-gray-50,
+html.theme-minimalista-premium .bg-slate-50,
+html.theme-minimalista-premium .bg-gray-100 {
+  background-color: #F5F5F7 !important;
+}
+
+/* Metallic Grays (#86868B & #D2D2D7) for secondary text and tech borders */
+html.theme-minimalista-premium .text-gray-500,
+html.theme-minimalista-premium .text-gray-400,
+html.theme-minimalista-premium .text-slate-500 {
+  color: #86868B !important;
+}
+
+html.theme-minimalista-premium .border-gray-100,
+html.theme-minimalista-premium .border-gray-200,
+html.theme-minimalista-premium .border-gray-300,
+html.theme-minimalista-premium .border-slate-200 {
+  border-color: #D2D2D7 !important;
+}
+
+/* Headings */
+html.theme-minimalista-premium h1,
+html.theme-minimalista-premium h2,
+html.theme-minimalista-premium h3,
+html.theme-minimalista-premium h4,
+html.theme-minimalista-premium .text-gray-900,
+html.theme-minimalista-premium .text-gray-800 {
+  color: #1D1D1F !important;
+  font-weight: 700 !important;
+}
+
+/* Special AI / Neon Badges (Fuchsia, Cyan, Violet, Orange) */
+html.theme-minimalista-premium .badge-special,
+html.theme-minimalista-premium .bg-amber-100 {
+  background: linear-gradient(135deg, #e100ff 0%, #00d2ff 50%, #ff8c00 100%) !important;
+  color: #FFFFFF !important;
+  border-radius: 9999px !important;
+  font-weight: 700 !important;
+}
+
+
+/* ==========================================================================
+   🛍️ TEMA FAST FASHION (SHEIN STYLE / PROMO-DRIVEN URBAN)
+   ========================================================================== */
+html.theme-fast-fashion,
+body.theme-fast-fashion {
+  background-color: #FFFFFF !important;
+  color: #000000 !important;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif !important;
+}
+
+html.theme-fast-fashion body {
+  background-color: #FFFFFF !important;
+  color: #000000 !important;
+}
+
+/* Iconic Monochromatic Black Header / Navbar */
+html.theme-fast-fashion #main-navbar,
+html.theme-fast-fashion header,
+html.theme-fast-fashion footer,
+html.theme-fast-fashion [class*="bg-[#131921]"],
+html.theme-fast-fashion [class*="bg-[#232f3e]"] {
+  background-color: #000000 !important;
+  color: #FFFFFF !important;
+}
+
+/* Sale & Urgency Red Accents (#FF0000 / #FA6338) */
+html.theme-fast-fashion .bg-rose-600,
+html.theme-fast-fashion .bg-red-600,
+html.theme-fast-fashion .bg-amber-500,
+html.theme-fast-fashion [class*="bg-[#febd69]"] {
+  background-color: #FF0000 !important;
+  color: #FFFFFF !important;
+  font-weight: 900 !important;
+}
+
+html.theme-fast-fashion .text-rose-600,
+html.theme-fast-fashion .text-red-600,
+html.theme-fast-fashion .text-amber-600,
+html.theme-fast-fashion [class*="text-[#005da9]"] {
+  color: #FF0000 !important;
+  font-weight: 900 !important;
+}
+
+/* Promo Gold / Free Shipping Yellow Bars (#FFD200) */
+html.theme-fast-fashion .promo-bar,
+html.theme-fast-fashion .bg-amber-100,
+html.theme-fast-fashion .bg-yellow-100 {
+  background-color: #FFD200 !important;
+  color: #000000 !important;
+  font-weight: 900 !important;
+}
+
+/* Primary Monochrome Black Action Buttons */
+html.theme-fast-fashion [class*="bg-[#005da9]"],
+html.theme-fast-fashion .bg-blue-600 {
+  background-color: #000000 !important;
+  color: #FFFFFF !important;
+  border-radius: 4px !important; /* Sharp urban box styling */
+  text-transform: uppercase !important;
+  letter-spacing: 0.05em !important;
+  font-weight: 900 !important;
+}
+
+html.theme-fast-fashion [class*="bg-[#005da9]"]:hover {
+  background-color: #222222 !important;
+}
+
+/* Product Cards & Containers (Gris Claro Neutro #F5F5F5) */
+html.theme-fast-fashion .bg-white {
+  background-color: #FFFFFF !important;
+  border: 1px solid #E5E5E5 !important;
+  border-radius: 6px !important;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.06) !important;
+}
+
+html.theme-fast-fashion .bg-gray-50,
+html.theme-fast-fashion .bg-slate-50 {
+  background-color: #F5F5F5 !important;
+}
+
+/* Sharp Bold Titles */
+html.theme-fast-fashion h1,
+html.theme-fast-fashion h2,
+html.theme-fast-fashion h3,
+html.theme-fast-fashion h4,
+html.theme-fast-fashion .text-gray-900,
+html.theme-fast-fashion .text-gray-800 {
+  color: #000000 !important;
+  font-weight: 900 !important;
+}
+
+/* Flash Deals & Discount Badges */
+html.theme-fast-fashion .badge-sale,
+html.theme-fast-fashion .bg-rose-100 {
+  background-color: #FF0000 !important;
+  color: #FFFFFF !important;
+  font-weight: 900 !important;
+  padding: 2px 8px !important;
+  border-radius: 2px !important;
+  text-transform: uppercase !important;
+}
+
+/* ==========================================================================
+   STYLING FOR PRINTERS (FACTURAS, RECIBOS Y TICKET DE CAJA)
+   ========================================================================== */
+@media print {
+  /* Ocultar absolutamente todo en el cuerpo del documento */
+  body * {
+    visibility: hidden;
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  }
+  
+  /* Mostrar únicamente el contenedor de impresión designado y sus hijos */
+  .printable-area,
+  .printable-area * {
+    visibility: visible !important;
+  }
+  
+  /* Alinear la sección de impresión arriba a la izquierda sin márgenes de pantalla */
+  .printable-area {
+    position: absolute !important;
+    left: 0 !important;
+    top: 0 !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    margin: 0 !important;
+    padding: 10px !important;
+    background: white !important;
+    color: black !important;
+    box-shadow: none !important;
+    border: none !important;
+  }
+
+  /* Ocultar componentes interactivos como botones, cierres de modal y elementos marcados */
+  button,
+  .print\:hidden,
+  #main-navbar,
+  #main-sidebar {
+    display: none !important;
+  }
+}
+
+/* ==========================================================================
+   🏢 NUEVA IDENTIDAD DE MARCA - PANEL ADMINISTRATIVO
+   ========================================================================== */
+.font-montserrat {
+  font-family: 'Montserrat', sans-serif !important;
+}
+
+.font-poppins {
+  font-family: 'Poppins', 'Inter', sans-serif !important;
+}
+
+/* Colors Variables & Classes */
+:root {
+  --brand-navy: #1D3557;
+  --brand-cyan: #40E0D0;
+  --brand-digital-blue: #00BFFF;
+  --brand-canvas: #F8F9FA;
+  --brand-slate: #2B2D42;
+}
+
+.bg-brand-navy {
+  background-color: #1D3557 !important;
+}
+
+.bg-brand-cyan {
+  background-color: #40E0D0 !important;
+}
+
+.bg-brand-digital-blue {
+  background-color: #00BFFF !important;
+}
+
+.bg-brand-canvas {
+  background-color: #F8F9FA !important;
+}
+
+.text-brand-navy {
+  color: #1D3557 !important;
+}
+
+.text-brand-cyan {
+  color: #40E0D0 !important;
+}
+
+.text-brand-digital-blue {
+  color: #00BFFF !important;
+}
+
+.text-brand-slate {
+  color: #2B2D42 !important;
+}
+
+.border-brand-navy {
+  border-color: #1D3557 !important;
+}
+
+.border-brand-cyan {
+  border-color: #40E0D0 !important;
+}
+
+.border-brand-digital-blue {
+  border-color: #00BFFF !important;
+}
+
+/* Admin Panel Master Container Theme */
+.admin-brand-root {
+  font-family: 'Poppins', 'Inter', sans-serif;
+  color: #2B2D42;
+  background-color: #F8F9FA;
+}
+
+.admin-brand-root h1,
+.admin-brand-root h2,
+.admin-brand-root h3,
+.admin-brand-root h4,
+.admin-brand-root h5,
+.admin-brand-root .brand-heading {
+  font-family: 'Montserrat', sans-serif;
+}
+
+/* Smooth micro-interactions & cards */
+.brand-card {
+  background: #FFFFFF;
+  border-radius: 12px;
+  border: 1px solid #E2E8F0;
+  box-shadow: 0 1px 3px rgba(29, 53, 87, 0.05);
+  transition: all 0.2s ease-in-out;
+}
+
+.brand-card:hover {
+  box-shadow: 0 4px 12px rgba(29, 53, 87, 0.08);
+}
+
+.btn-brand-primary {
+  background-color: #40E0D0 !important;
+  color: #1D3557 !important;
+  font-family: 'Montserrat', sans-serif !important;
+  font-weight: 800 !important;
+  border-radius: 10px !important;
+  transition: all 0.2s ease-in-out !important;
+}
+
+.btn-brand-primary:hover {
+  background-color: #36cebe !important;
+  box-shadow: 0 4px 12px rgba(64, 224, 208, 0.3) !important;
+  transform: translateY(-1px);
+}
+
+.btn-brand-navy {
+  background-color: #1D3557 !important;
+  color: #FFFFFF !important;
+  font-family: 'Montserrat', sans-serif !important;
+  font-weight: 700 !important;
+  border-radius: 10px !important;
+  transition: all 0.2s ease-in-out !important;
+}
+
+.btn-brand-navy:hover {
+  background-color: #14253e !important;
+  box-shadow: 0 4px 12px rgba(29, 53, 87, 0.25) !important;
+  transform: translateY(-1px);
+}
+
+
